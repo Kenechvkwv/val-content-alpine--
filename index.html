@@ -20,16 +20,26 @@
         'Love is not about how many days, months, or years you have been together. It’s all about how much you love each other every single day.',
         'You are my today and all of my tomorrows.',
         'Every love story is beautiful, but ours is my favorite.',
-        'I still fall for you every day.'
+        'I still fall for you every day.',
+        'In your arms is where I belong, and in your heart is where I want to stay forever.',
+        'Your love is all I need to feel complete.',
+        'You make my heart smile.',
+        'With you, every moment feels like a beautiful dream.',
+        'Your love is the strength that keeps me going.',
+        'In a world full of chaos, your love is my peace.',
+        'You are the missing piece to my puzzle.',
+        'Forever is a long time, but I wouldn’t mind spending it by your side.'
     ],
     currentQuote: '',
+    quoteIndex: 0,
     showQuote() {
-        const quote = this.quotes[Math.floor(Math.random() * this.quotes.length)];
+        const quote = this.quotes[this.quoteIndex];
         const el = document.querySelector('.quote');
         el.style.animation = 'none';
         el.offsetHeight; // Trigger reflow
         el.style.animation = null;
         this.currentQuote = quote;
+        this.quoteIndex = (this.quoteIndex + 1) % this.quotes.length;
     },
     generateBubbles() {
         setInterval(() => {
@@ -60,6 +70,7 @@
     </nav>
     <div class="quote-container" @click="showQuote()">
       <p x-show="currentQuote" x-text="currentQuote" class="quote"></p>
+      <div class="click-hint">Click anywhere for next quote ❤️</div>
     </div>
   </body>
 </html>

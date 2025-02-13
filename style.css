@@ -188,3 +188,39 @@ body {
     font-size: 0.8rem;
   }
 }
+
+.click-hint {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Poppins", sans-serif;
+  color: #ff1e1e;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .click-hint {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
